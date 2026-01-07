@@ -1,9 +1,9 @@
-import os
 import boto3
+from app.config.config import settings
 from botocore.exceptions import NoCredentialsError, ClientError
 
-AWS_REGION = os.environ.get("AWS_DEFAULT_REGION", "ap-south-1")
-S3_BUCKET = os.environ.get("S3_BUCKET", "slipsafe-app-poc")
+AWS_REGION = settings.AWS_REGION
+S3_BUCKET = settings.AWS_S3_BUCKET
 
 # Initialize Textract client (credentials are read from env)
 textract_client = boto3.client("textract", region_name=AWS_REGION)

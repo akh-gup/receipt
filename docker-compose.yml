@@ -5,7 +5,7 @@ services:
     build: .
     container_name: slip_safe_backend
     env_file:
-      - .env.${ENV_FILE:-dev}
+      - .env
     ports:
       - "8000:8000"
     depends_on:

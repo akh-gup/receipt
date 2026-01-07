@@ -1,10 +1,10 @@
-import os
+from app.config.config import settings
 import boto3
 from botocore.exceptions import NoCredentialsError, ClientError
 
 # Read credentials from environment variables
-AWS_REGION = os.environ.get("AWS_DEFAULT_REGION", "ap-south-1")
-S3_BUCKET = os.environ.get("S3_BUCKET", "slipsafe-app-poc")
+AWS_REGION = settings.AWS_REGION
+S3_BUCKET = settings.S3_BUCKET
 
 # Initialize S3 client (credentials are automatically read from env)
 s3_client = boto3.client("s3",region_name=AWS_REGION)

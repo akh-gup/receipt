@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from app.db.db import get_db
 from app.services.user.user_service import initiate_user_verification, verify_user
 
-router = APIRouter(prefix="/auth", tags=["auth"])
+router = APIRouter()
 
 @router.post("/send-otp")
 def send_otp_endpoint(payload: SendOTPRequest, db: Session = Depends(get_db)):

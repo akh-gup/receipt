@@ -1,8 +1,8 @@
 import boto3
-import os
+from app.config.config import settings
 
 # Initialize SES client
-AWS_REGION = os.environ.get("AWS_DEFAULT_REGION", "ap-south-1")
+AWS_REGION = settings.AWS_REGION
 ses_client = boto3.client("ses", region_name=AWS_REGION)
 
 def send_ses_text_message(otp_code: str, recipient_email: str) -> None:
