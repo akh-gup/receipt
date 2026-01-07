@@ -7,7 +7,6 @@ from app.services.otp.email_otp import send_email_otp
 from app.services.otp.phone_otp import send_phone_otp
 import re
 from datetime import datetime, timedelta
-from app.config.config import OTP_EXPIRY_MINUTES
 
 def create_user(identifier: str, db: Session):
     # 1️⃣ Check if user exists, create if not
@@ -60,7 +59,7 @@ def save_otp(identifier: str,
 def initiate_user_verification(identifier: str, db: Session):
     try:
         otp = str(random.randint(100000, 999999))
-        expiry_time = datetime.utcnow() + timedelta(minutes=OTP_EXPIRY_MINUTES)
+        expiry_time = datetime.utcnow() + timedelta(minutes=5)
 
         if is_email(identifier):
             save_otp(identifier, otp, "email", expiry_time, db)
