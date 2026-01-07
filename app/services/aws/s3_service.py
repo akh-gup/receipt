@@ -4,7 +4,7 @@ from botocore.exceptions import NoCredentialsError, ClientError
 
 # Read credentials from environment variables
 AWS_REGION = settings.AWS_REGION
-S3_BUCKET = settings.S3_BUCKET
+S3_BUCKET = settings.AWS_S3_BUCKET
 
 # Initialize S3 client (credentials are automatically read from env)
 s3_client = boto3.client("s3",region_name=AWS_REGION)
